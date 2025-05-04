@@ -6,15 +6,29 @@ const filterAll = document.querySelector('.all');
 
 function addFilterAll() {
     extensionData.forEach( element => {
+        //creation de la section
         const section = document.createElement('section');
-        const btn = document.createElement('button');
         section.className = `${element.name}`;
+        // condition pour supprimer les espaces dans le nom de la class s' il existe
         if (section.className.includes(' ')) {
             let result = section.className.replaceAll(' ', '');
             section.className = result;
-            console.log(result);
-            
         }
+
+        // creation du bouton
+        const btn = document.createElement('button');
+        btn.className = `${element.name}`;
+        // condition pour supprimer les espaces dans le nom de la class s' il existe
+        if (btn.className.includes(' ')) {
+            let result = btn.className.replaceAll(' ', '');
+            btn.className = result;
+        }
+        btn.innerHTML = `${element.bouton}`;
+
+        const div = document.createElement('div');
+        div.className = `divAction`;
+        div.append(btn);
+        
         section.innerHTML = `
             <div id="container">
                 <img src="${element.source}" alt="${element.name}">
@@ -22,16 +36,27 @@ function addFilterAll() {
                     <h2>${element.name}</h2>
                     <p>${element.contenue}</p>
                 </div>
-            </div>
-            <div id="btn">
-                <button> ${element.bouton}</button>
             </div>`
+        section.append(div);
         filterAll.append(section)
     });
 }
-addFilterAll();
 
-// selecteur du section extension
-const sectionDevLens = document.querySelector('.MarkupNotes');
-console.log(sectionDevLens);
+
+// fonction pour supprimer une extension
+function removeExtension() {
+    const btnRemove = document.querySelectorAll('.divAction button');
+    btnRemove.forEach(element => {
+        element.addEventListener('click', () => {
+            console.log(element.className);
+            const section = document.querySelector(`.${element.className}`);
+            section.remove();
+        });
+    });
+}
+// Appel de la fonction pour ajouter les extensions
+addFilterAll();
+// Appel de la fonction pour supprimer une extension
+removeExtension();
+
 
