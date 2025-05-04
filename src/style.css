@@ -13,10 +13,12 @@ body{
     padding: 20px;
     h1, h2{
         font-family: NotoSans;
+        color: hsl(227, 75%, 14%);
     }
     p{
         font-family: NotoSans, 'Times New Roman', Times, serif;
         font-size: 16px;
+        color: hsl(226, 11%, 37%)
     }
 }
 
@@ -109,10 +111,20 @@ header{
             }
             div h2{
                 margin: 0 0 5px 0;
-                color: hsl(227, 75%, 14%);
             }
-            div p{
-                color: hsl(226, 11%, 37%);
+        }
+
+        #btn{
+
+            button{
+                background: white;
+                border: 1.5px solid hsl(0, 0%, 93%);
+                padding: 3px 10px;
+                border-radius: 15px;
+                cursor: pointer;
+            }
+            button:focus{
+                border: 1.5px solid hsl(3, 77%, 44%);
             }
         }
     }
