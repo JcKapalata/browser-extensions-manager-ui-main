@@ -3,10 +3,19 @@
     padding: 0;
 }
 
+@font-face{
+    font-family: NotoSans;
+    src: url("../assets/fonts/static/NotoSans-Regular.ttf") format('truetype');
+}
+
 body{
     background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
     padding: 20px;
+    h1, h2{
+        font-family: NotoSans;
+    }
     p{
+        font-family: NotoSans, 'Times New Roman', Times, serif;
         font-size: 16px;
     }
 }
@@ -43,6 +52,9 @@ header{
             height: 60%;
         }
     }
+    button:focus{
+        border: 1px solid hsl(3, 77%, 44%);
+    }
 }
 
 /* section extensions-filter */
@@ -78,10 +90,31 @@ header{
     justify-items: stretch;
     gap: 10px;
     margin: 10px 0;
+
     section{
-        width: 380px;
-        height: 200px;
+        width: 350px;
+        height: 150px;
         background: white;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 10px;
+
+        #container{
+            display: flex;
+            align-items: flex-start;
+            div{
+                padding:0 10px;
+            }
+            div h2{
+                margin: 0 0 5px 0;
+                color: hsl(227, 75%, 14%);
+            }
+            div p{
+                color: hsl(226, 11%, 37%);
+            }
+        }
     }
 }
 
