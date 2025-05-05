@@ -48,7 +48,6 @@ function removeExtension() {
     const btnRemove = document.querySelectorAll('.divAction button');
     btnRemove.forEach(element => {
         element.addEventListener('click', () => {
-            console.log(element.className);
             const section = document.querySelector(`.${element.className}`);
             section.remove();
         });
@@ -62,7 +61,6 @@ function btnAllfilter() {
     btnFilterAll.addEventListener('click', () => {
         const sections = document.querySelectorAll('#all section');
         sections.forEach(element => {
-            console.log(element.className);
             element.style.display = 'none';
         });
         // Appel de la fonction pour ajouter les extensions
