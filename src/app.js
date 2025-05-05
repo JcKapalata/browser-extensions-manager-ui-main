@@ -54,9 +54,34 @@ function removeExtension() {
         });
     });
 }
+
+// fonction pour afficher le filter all
+function btnAllfilter() {
+    const btnFilterAll = document.querySelector('#filter-buttons-all');
+    
+    btnFilterAll.addEventListener('click', () => {
+        const sections = document.querySelectorAll('#all section');
+        sections.forEach(element => {
+            console.log(element.className);
+            element.style.display = 'none';
+        });
+        // Appel de la fonction pour ajouter les extensions
+        addFilterAll();
+        // Appel de la fonction pour supprimer une extension
+        removeExtension();
+    });
+//     
+}
+
 // Appel de la fonction pour ajouter les extensions
 addFilterAll();
+
+// Appel de la fonction pour ajouter le filter all
+btnAllfilter();
+
 // Appel de la fonction pour supprimer une extension
 removeExtension();
+
+
 
 
