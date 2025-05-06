@@ -115,7 +115,9 @@ header{
         }
 
         .divAction{
-
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             button{
                 background: white;
                 border: 1.5px solid hsl(0, 0%, 93%);
@@ -126,6 +128,12 @@ header{
             button:focus{
                 border: 1.5px solid hsl(3, 77%, 44%);
             }
+        }
+
+        .divAction div{
+            background: hsl(226, 11%, 37%);
+            border-radius: 15px;
+            height: 15px;
         }
     }
 }
