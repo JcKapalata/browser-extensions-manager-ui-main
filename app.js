@@ -37,15 +37,16 @@ function addFilterAll() {
         divInputRadio.className = deleteEspaceClassName(divInputRadio.className);
         
         for (let index = 0; index < 2; index++) {
-            divInputRadio.innerHTML += `
-                <input type="radio" name="divInputRadio" id="radio${index} value="${element.isActive[index]}" ${element.isActive[index] ? 'checked' : ''}>
-            `;
-            
-            // if (divInputRadio.value === "true") {
-            //     divInputRadio.innerHTML = `
-            //         <input type="radio" name="divInputRadio" id="radio${index} value="${element.isActive}" checked>
-            //     `;
-            // }
+            if (element.isActive === true) {
+                divInputRadio.innerHTML += `
+                    <input type="radio" name="${divInputRadio.className}" id="radio${index}" value="${element.isActive}" checked>
+                `;
+            }else{
+                divInputRadio.innerHTML += `
+                    <input type="radio" name="${divInputRadio.className}" id="radio${index}" value="${element.isActive}">
+                `;
+            }
+            console.log(divInputRadio);
         }
 
         const div = document.createElement('div');
