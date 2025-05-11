@@ -23,7 +23,7 @@ function addFilterAll() {
 
         // creation du bouton
         const btn = document.createElement('button');
-        btn.className = `${element.name}`;
+        btn.className = `${element.name}-btn`;
         // appel de la fonction pour supprimer les espaces dans le nom de la class
         deleteEspaceClassName(btn.className);
         btn.className = deleteEspaceClassName(btn.className);
@@ -31,23 +31,30 @@ function addFilterAll() {
 
         //creation d'un div pour input radio
         const divInputRadio = document.createElement('div');
-        divInputRadio.className = `${element.name}`;
+        divInputRadio.className = `${element.name}-input`;
         // appel de la fonction pour supprimer les espaces dans le nom de la class
         deleteEspaceClassName(divInputRadio.className);
         divInputRadio.className = deleteEspaceClassName(divInputRadio.className);
         
-        for (let index = 0; index < 2; index++) {
-            if (element.isActive === true) {
-                divInputRadio.innerHTML += `
-                    <input type="radio" name="${divInputRadio.className}" id="radio${index}" value="${element.isActive}" checked>
-                `;
-            }else{
-                divInputRadio.innerHTML += `
-                    <input type="radio" name="${divInputRadio.className}" id="radio${index}" value="${element.isActive}">
-                `;
+        ['true', 'false'].forEach( (val, index) =>{
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = deleteEspaceClassName(divInputRadio.className);
+            input.id = `radio-${element.name}-${val}`;
+            input.value = val;
+
+            // Cocher si la valeur correspond à element.isActive
+            if (String(element.isActive) === val) {
+                input.checked = true;
+                divInputRadio.style.backgroundColor = val === 'true' ? 'hsl(3, 77%, 44%)' : 'hsl(226, 25%, 17%)';
             }
-            console.log(divInputRadio);
-        }
+            // Gestion du changement de couleur au clic
+            input.addEventListener('change', () => {
+                divInputRadio.style.backgroundColor = val === 'true' ? 'hsl(226, 25%, 17%)' : 'hsl(3, 77%, 44%)';
+            });
+
+            divInputRadio.appendChild(input);
+        })
 
         const div = document.createElement('div');
         div.className = `divAction`;
@@ -95,14 +102,16 @@ function btnAllfilter() {
     }); 
 }
 
+
 // Appel de la fonction pour ajouter les extensions
 addFilterAll();
 
-// Appel de la fonction pour ajouter le filter all
+// Appel de la fonction pour ajouter le bouton filter all
 btnAllfilter();
 
 // Appel de la fonction pour supprimer une extension
 removeExtension();
+
 
 
 

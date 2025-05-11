@@ -131,9 +131,12 @@ header{
         }
 
         .divAction div{
-            background: hsl(226, 11%, 37%);
             border-radius: 15px;
             height: 15px;
+            input{
+                cursor: pointer;
+               
+            }
         }
     }
 }
