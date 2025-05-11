@@ -46,7 +46,7 @@ function addFilterAll() {
             // Cocher si la valeur correspond à element.isActive
             if (String(element.isActive) === val) {
                 input.checked = true;
-                divInputRadio.style.backgroundColor = val === 'true' ? 'hsl(3, 77%, 44%)' : 'hsl(226, 25%, 17%)';
+                divInputRadio.style.backgroundColor = val === 'true' ? 'hsl(226, 25%, 17%)' : 'hsl(3, 77%, 44%)';
             }
             // Gestion du changement de couleur au clic
             input.addEventListener('change', () => {
