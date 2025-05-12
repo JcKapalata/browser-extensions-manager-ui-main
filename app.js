@@ -80,7 +80,7 @@ function removeExtension() {
     const btnRemove = document.querySelectorAll('.divAction button');
     btnRemove.forEach(element => {
         element.addEventListener('click', () => {
-            const section = document.querySelector(`.${element.className}`);
+            const section = element.closest('section');
             section.remove();
         });
     });
