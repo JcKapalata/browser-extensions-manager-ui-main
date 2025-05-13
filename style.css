@@ -8,17 +8,31 @@
     src: url("./assets/fonts/static/NotoSans-Regular.ttf") format('truetype');
 }
 
+/* variable de couleur */
+:root{
+    --background-body: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%); /* pour le background clair*/
+    --background-header-section: white; /* backaground header and section*/
+    --background-button: hsl(0, 0%, 93%); /* background button */
+
+    --border-button: hsl(0, 0%, 78%); /* color border button */
+    --bg-border-focus : hsl(3, 77%, 44%); /*button color border focus and bg activer */
+
+    --color-h1-h2: hsl(227, 75%, 14%); /* color h1, h2 light */
+    --color-p: hsl(226, 11%, 37%); /* color p light */
+}
+
 body{
-    background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    background: var(--background-body);
     padding: 20px;
     h1, h2{
         font-family: NotoSans;
-        color: hsl(227, 75%, 14%);
+        color: var(--color-h1-h2);
+        font-size: 1.6vw;
     }
     p{
         font-family: NotoSans, 'Times New Roman', Times, serif;
-        font-size: 16px;
-        color: hsl(226, 11%, 37%)
+        font-size: 1.3vw;
+        color: var(--color-p);
     }
 }
 
@@ -26,7 +40,7 @@ body{
 header{
     padding: 10px;
     height: 1.5rem;
-    background: white;
+    background: var(--background-header-section);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +53,7 @@ header{
     }
 
     button{
-        background: hsl(0, 0%, 93%);
+        background: var(--background-button);
         border: none;
         cursor: pointer;
         width: 1.7rem;
@@ -55,7 +69,7 @@ header{
         }
     }
     button:focus{
-        border: 1px solid hsl(3, 77%, 44%);
+        border: 1px solid var(--bg-border-focus);
     }
 }
 
@@ -70,33 +84,32 @@ header{
 
     }
     button{
-        background: white;
-        border: 1px solid hsl(0, 0%, 93%);
+        background: var(--background-button);
+        border: 1px solid var(--border-button);
         padding: 3px 10px;
         border-radius: 15px;
         cursor: pointer;
     }
     button:active{
-        background: hsl(3, 77%, 44%);
+        background: var(--bg-border-focus);
         color: white;
     }
     button:focus{
-        border: 1px solid hsl(3, 77%, 44%);
+        border: 1px solid var(--bg-border-focus);
     }
 }
 
 /* section */
 .all {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin: 10px 0;
 
     section{
-        width: 350px;
-        height: 150px;
-        background: white;
+        width: calc(29.4% - 10px);
+        height: 120px;
+        background: var(--background-header-section);
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -119,14 +132,14 @@ header{
             justify-content: space-between;
             align-items: center;
             button{
-                background: white;
-                border: 1.5px solid hsl(0, 0%, 93%);
+                background: var(--background-button);
+                border: 1.5px solid var(--border-button);
                 padding: 3px 10px;
                 border-radius: 15px;
                 cursor: pointer;
             }
             button:focus{
-                border: 1.5px solid hsl(3, 77%, 44%);
+                border: 1.5px solid var(--bg-border-focus);
             }
         }
 
