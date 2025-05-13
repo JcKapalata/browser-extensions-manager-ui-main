@@ -1,7 +1,20 @@
 import  extensionData  from './data.js';
 
 // Selecteur du filterAll
+const body = document.body;
+const buttonTheme = document.querySelector('.theme-toggle');
 const filterAll = document.querySelector('.all');
+
+// fonction pour changer le theme
+function changeTheme() {
+    buttonTheme.addEventListener('click', () =>{
+        const curreTheme = body.getAttribute('data-theme');
+        const newTheme = curreTheme === 'light' ? 'dark' : 'light';
+        body.setAttribute('data-theme', newTheme)
+        
+        
+    })
+}
 
 // fonction pour supprimer le espace dans le nom de la class
 function deleteEspaceClassName(name) {
@@ -102,7 +115,8 @@ function btnAllfilter() {
     }); 
 }
 
-
+// fonction pour changer le theme
+changeTheme();
 // Appel de la fonction pour ajouter les extensions
 addFilterAll();
 

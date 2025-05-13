@@ -11,14 +11,29 @@
 /* variable de couleur */
 :root{
     --background-body: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%); /* pour le background clair*/
-    --background-header-section: white; /* backaground header and section*/
-    --background-button: hsl(0, 0%, 93%); /* background button */
+    --background-header-section: hsl(200, 60%, 99%); /* backaground header and section*/
+    --background-button: hsl(200, 60%, 99%); /* background button */
 
     --border-button: hsl(0, 0%, 78%); /* color border button */
     --bg-border-focus : hsl(3, 77%, 44%); /*button color border focus and bg activer */
 
     --color-h1-h2: hsl(227, 75%, 14%); /* color h1, h2 light */
     --color-p: hsl(226, 11%, 37%); /* color p light */
+    --color-button: hsl(225, 23%, 24%); /* color button light */
+}
+
+/* mode dark */
+[data-theme="dark"]{
+    --background-body: linear-gradient(180deg, #040918 0%, #091540 100%); /* pour le background dark*/
+    --background-header-section: hsl(226, 25%, 17%); /* backaground header and section*/
+    --background-button: hsl(226, 25%, 17%); /* background button */
+
+    --border-button: hsl(0, 0%, 78%); /* color border button */
+    --bg-border-focus : hsl(3, 77%, 44%); /*button color border focus and bg activer */
+    
+    --color-h1-h2: hsl(200, 60%, 99%); /* color h1, h2 dark */
+    --color-p: hsl(0, 0%, 78%); /* color p dark */
+    --color-button: hsl(0, 0%, 78%);
 }
 
 body{
@@ -36,6 +51,7 @@ body{
     }
     button{
         font-size: 1.3vw;
+        color: var(--color-button);
     }
 }
 
@@ -84,18 +100,16 @@ header{
 
     a{
         border-radius: 15px;
-
     }
     button{
         background: var(--background-button);
-        border: 1px solid var(--border-button);
+        border: none;
         padding: 2px 10px;
         border-radius: 15px;
         cursor: pointer;
     }
     button:active{
         background: var(--bg-border-focus);
-        color: white;
     }
     button:focus{
         border: 1px solid var(--bg-border-focus);
@@ -159,5 +173,9 @@ header{
 }
 
 /* footer */
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution { font-size: 1.3vw; text-align: center; }
+.attribution a { 
+    color: hsl(228, 45%, 44%);
+    font-weight: bold;
+    text-decoration: none;
+}
