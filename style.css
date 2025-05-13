@@ -89,7 +89,7 @@ header{
     button{
         background: var(--background-button);
         border: 1px solid var(--border-button);
-        padding: 3px 10px;
+        padding: 2px 10px;
         border-radius: 15px;
         cursor: pointer;
     }
@@ -138,7 +138,7 @@ header{
             button{
                 background: var(--background-button);
                 border: 1.5px solid var(--border-button);
-                padding: 3px 10px;
+                padding: 2px 10px;
                 border-radius: 15px;
                 cursor: pointer;
             }
