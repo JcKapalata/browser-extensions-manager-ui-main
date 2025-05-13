@@ -12,7 +12,11 @@ function changeTheme() {
         const newTheme = curreTheme === 'light' ? 'dark' : 'light';
         body.setAttribute('data-theme', newTheme)
         
-        
+        // Changer l'image du button
+        const img = document.querySelector('.theme-toggle img');
+        const curreImage = img.getAttribute('src');
+        const newImage = curreImage === './assets/images/icon-moon.svg' ? './assets/images/icon-sun.svg' : './assets/images/icon-moon.svg';
+        img.setAttribute('src', newImage);
     })
 }
 
