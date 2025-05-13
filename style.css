@@ -34,6 +34,9 @@ body{
         font-size: 1.3vw;
         color: var(--color-p);
     }
+    button{
+        font-size: 1.3vw;
+    }
 }
 
 /* header */
