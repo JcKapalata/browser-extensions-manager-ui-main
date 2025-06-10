@@ -13,8 +13,8 @@ function changeTheme() {
     buttonTheme.addEventListener('click', () =>{
         const curreTheme = body.getAttribute('data-theme');
         const newTheme = curreTheme === 'light' ? 'dark' : 'light';
-        body.setAttribute('data-theme', newTheme)
-        
+        body.setAttribute('data-theme', newTheme);
+
         // Changer l'image du button
         const img = document.querySelector('.theme-toggle img');
         const curreImage = img.getAttribute('src');
@@ -72,6 +72,7 @@ function btnAllfilter() {
     
     btnFilterAll.addEventListener('click', () => {
         filterAll.style.display = '';
+        filterActiver.style.display = 'none';
         const sections = document.querySelectorAll('#all section');
         sections.forEach(element => {
             element.style.display = 'none';
@@ -87,7 +88,8 @@ function btnAllfilter() {
 function activeFilter() {
     
     btnActiveFilter.addEventListener('click', () =>{   
-        const inputRadioList = document.querySelectorAll(`input`);  
+        const inputRadioList = document.querySelectorAll(`input`); 
+        filterActiver.style.display = ''; 
         filterAll.style.display = 'none';
 
         //creation de la section
@@ -112,14 +114,16 @@ function activeFilter() {
                             <p>${extension.contenue}</p>
                         </div>
                     </div>`
-                    filterActiver.append(section)
-
+                    ActionExtension(section, extension);
+                    filterActiver.append(section);
                 }
             })     
         })       
-    })
+    });
+    removeExtension();
 }
 
+// fonction pour gere les action de chacun extension
 function ActionExtension(sectionAction, elementAction) {
     // creation du bouton
         const btn = document.createElement('button');
