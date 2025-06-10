@@ -1,9 +1,12 @@
 import  extensionData  from './data.js';
 
-// Selecteur du filterAll
+// Selecteur
 const body = document.body;
 const buttonTheme = document.querySelector('.theme-toggle');
 const filterAll = document.querySelector('.all');
+const btnActiveFilter = document.querySelector('#filter-buttons-active');
+const filterActiver = document.querySelector('.active')
+
 
 // fonction pour changer le theme
 function changeTheme() {
@@ -108,6 +111,7 @@ function btnAllfilter() {
     const btnFilterAll = document.querySelector('#filter-buttons-all');
     
     btnFilterAll.addEventListener('click', () => {
+        filterAll.style.display = '';
         const sections = document.querySelectorAll('#all section');
         sections.forEach(element => {
             element.style.display = 'none';
@@ -119,6 +123,45 @@ function btnAllfilter() {
     }); 
 }
 
+// focntion pour le filtrer active
+function activeFilter() {
+
+    btnActiveFilter.addEventListener('click', () =>{   
+        const inputRadioList = document.querySelectorAll(`input`);  
+        filterAll.style.display = 'none';
+
+        //creation de la section
+        const section = document.createElement('section');
+        // appel de la fonction pour supprimer les espaces dans le nom de la class
+        section.className = deleteEspaceClassName(section.className);
+
+        let inputArray = Array.from(inputRadioList);
+        
+        let inputActiveFilter = inputArray.filter( elementRadio => elementRadio.checked && elementRadio.value == 'false')
+        inputActiveFilter.forEach( element => {
+            const section = element.closest('section');
+            console.log(section);
+
+            // div.className = `divAction`;
+            // div.append(btn);
+            // div.append(divInputRadio);
+
+             section.innerHTML = `
+                <div id="container">
+                    <img src="${element.source}" alt="${element.name}">
+                    <div>
+                        <h2>${element.name}</h2>
+                        <p>${element.contenue}</p>
+                    </div>
+                </div>`
+            // const div = document.createElement('div');
+            
+            // section.append(div);
+            filterActiver.append(section)
+        })
+    })
+}
+
 // fonction pour changer le theme
 changeTheme();
 // Appel de la fonction pour ajouter les extensions
@@ -126,10 +169,10 @@ addFilterAll();
 
 // Appel de la fonction pour ajouter le bouton filter all
 btnAllfilter();
-
 // Appel de la fonction pour supprimer une extension
 removeExtension();
-
+// Appel de la focntion pour le active filter
+activeFilter();
 
 
 

@@ -117,7 +117,7 @@ header{
 }
 
 /* section */
-.all {
+.all, .active {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
