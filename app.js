@@ -125,7 +125,7 @@ function btnAllfilter() {
 
 // focntion pour le filtrer active
 function activeFilter() {
-
+    
     btnActiveFilter.addEventListener('click', () =>{   
         const inputRadioList = document.querySelectorAll(`input`);  
         filterAll.style.display = 'none';
@@ -134,31 +134,30 @@ function activeFilter() {
         const section = document.createElement('section');
         // appel de la fonction pour supprimer les espaces dans le nom de la class
         section.className = deleteEspaceClassName(section.className);
-
+        
         let inputArray = Array.from(inputRadioList);
         
         let inputActiveFilter = inputArray.filter( elementRadio => elementRadio.checked && elementRadio.value == 'false')
+        filterActiver.innerHTML = ``;
         inputActiveFilter.forEach( element => {
             const section = element.closest('section');
-            console.log(section);
-
-            // div.className = `divAction`;
-            // div.append(btn);
-            // div.append(divInputRadio);
-
-             section.innerHTML = `
-                <div id="container">
-                    <img src="${element.source}" alt="${element.name}">
-                    <div>
-                        <h2>${element.name}</h2>
-                        <p>${element.contenue}</p>
-                    </div>
-                </div>`
-            // const div = document.createElement('div');
-            
-            // section.append(div);
-            filterActiver.append(section)
-        })
+            section.remove();
+            extensionData.forEach( extension  => {
+                if (section.className == deleteEspaceClassName(extension.name)) {
+                    section.innerHTML = `
+                    <div id="container">
+                        <img src="${extension.source}" alt="${extension.name}">
+                        <div>
+                            <h2>${extension.name}</h2>
+                            <p>${extension.contenue}</p>
+                        </div>
+                    </div>`
+                    console.log(section);
+                    filterActiver.append(section)
+                }
+                
+            })     
+        })       
     })
 }
 
