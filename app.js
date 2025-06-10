@@ -40,46 +40,6 @@ function addFilterAll() {
         section.className = `${element.name}`;
         // appel de la fonction pour supprimer les espaces dans le nom de la class
         section.className = deleteEspaceClassName(section.className);
-
-        // creation du bouton
-        const btn = document.createElement('button');
-        btn.className = `${element.name}-btn`;
-        // appel de la fonction pour supprimer les espaces dans le nom de la class
-        deleteEspaceClassName(btn.className);
-        btn.className = deleteEspaceClassName(btn.className);
-        btn.innerHTML = `${element.bouton}`;
-
-        //creation d'un div pour input radio
-        const divInputRadio = document.createElement('div');
-        divInputRadio.className = `${element.name}-input`;
-        // appel de la fonction pour supprimer les espaces dans le nom de la class
-        deleteEspaceClassName(divInputRadio.className);
-        divInputRadio.className = deleteEspaceClassName(divInputRadio.className);
-        
-        ['true', 'false'].forEach( (val, index) =>{
-            const input = document.createElement('input');
-            input.type = 'radio';
-            input.name = deleteEspaceClassName(divInputRadio.className);
-            input.id = `radio-${element.name}-${val}`;
-            input.value = val;
-
-            // Cocher si la valeur correspond à element.isActive
-            if (String(element.isActive) === val) {
-                input.checked = true;
-                divInputRadio.style.backgroundColor = val === 'true' ? 'hsl(226, 11%, 37%)' : 'hsl(3, 77%, 44%)';
-            }
-            // Gestion du changement de couleur au clic
-            input.addEventListener('change', () => {
-                divInputRadio.style.backgroundColor = val === 'true' ? 'hsl(226, 11%, 37%)' : 'hsl(3, 77%, 44%)';
-            });
-
-            divInputRadio.appendChild(input);
-        })
-
-        const div = document.createElement('div');
-        div.className = `divAction`;
-        div.append(btn);
-        div.append(divInputRadio);
         
         section.innerHTML = `
             <div id="container">
@@ -89,7 +49,7 @@ function addFilterAll() {
                     <p>${element.contenue}</p>
                 </div>
             </div>`
-        section.append(div);
+        ActionExtension(section, element)
         filterAll.append(section)
     });
 }
@@ -141,7 +101,7 @@ function activeFilter() {
         filterActiver.innerHTML = ``;
         inputActiveFilter.forEach( element => {
             const section = element.closest('section');
-            section.remove();
+
             extensionData.forEach( extension  => {
                 if (section.className == deleteEspaceClassName(extension.name)) {
                     section.innerHTML = `
@@ -152,13 +112,56 @@ function activeFilter() {
                             <p>${extension.contenue}</p>
                         </div>
                     </div>`
-                    console.log(section);
                     filterActiver.append(section)
+
                 }
-                
             })     
         })       
     })
+}
+
+function ActionExtension(sectionAction, elementAction) {
+    // creation du bouton
+        const btn = document.createElement('button');
+        btn.className = `${elementAction.name}-btn`;
+        // appel de la fonction pour supprimer les espaces dans le nom de la class
+        deleteEspaceClassName(btn.className);
+        btn.className = deleteEspaceClassName(btn.className);
+        btn.innerHTML = `${elementAction.bouton}`;
+
+        //creation d'un div pour input radio
+        const divInputRadio = document.createElement('div');
+        divInputRadio.className = `${elementAction.name}-input`;
+        // appel de la fonction pour supprimer les espaces dans le nom de la class
+        deleteEspaceClassName(divInputRadio.className);
+        divInputRadio.className = deleteEspaceClassName(divInputRadio.className);
+        
+        ['true', 'false'].forEach( (val, index) =>{
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = deleteEspaceClassName(divInputRadio.className);
+            input.id = `radio-${elementAction.name}-${val}`;
+            input.value = val;
+
+            // Cocher si la valeur correspond à element.isActive
+            if (String(elementAction.isActive) === val) {
+                input.checked = true;
+                divInputRadio.style.backgroundColor = val === 'true' ? 'hsl(226, 11%, 37%)' : 'hsl(3, 77%, 44%)';
+            }
+            // Gestion du changement de couleur au clic
+            input.addEventListener('change', () => {
+                divInputRadio.style.backgroundColor = val === 'true' ? 'hsl(226, 11%, 37%)' : 'hsl(3, 77%, 44%)';
+            });
+
+            divInputRadio.appendChild(input);
+        })
+
+        const div = document.createElement('div');
+        div.className = `divAction`;
+        div.append(btn);
+        div.append(divInputRadio);
+        
+        sectionAction.append(div);
 }
 
 // fonction pour changer le theme
