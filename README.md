@@ -27,12 +27,19 @@ JavaScript (DOM, gestion d’événements)
 🗂️ Organisation du projet
 
 ├── assets/           → Images et icônes optimisés
+
 ├── design/           → Maquettes JPG (mobile & desktop)
-├── data.js         → Données des extensions (locale)
+
+├── data.js           → Données des extensions (locale)
+
 ├── style-guide.md    → Guide de styles (polices, couleurs, etc.)
+
 ├── index.html
+
 ├── style.css
+
 ├── app.js
+
 └── README.md
 
 🧪 Instructions pour tester localement
