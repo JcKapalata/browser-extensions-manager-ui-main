@@ -84,43 +84,47 @@ function btnAllfilter() {
     }); 
 }
 
-// focntion pour le filtrer active
+// fonction pour le filtrer active
 function activeFilter() {
     
     btnActiveFilter.addEventListener('click', () =>{   
         const inputRadioList = document.querySelectorAll(`input`); 
         filterActiver.style.display = ''; 
         filterAll.style.display = 'none';
-
-        //creation de la section
-        const section = document.createElement('section');
-        // appel de la fonction pour supprimer les espaces dans le nom de la class
-        section.className = deleteEspaceClassName(section.className);
-        
-        let inputArray = Array.from(inputRadioList);
-        
-        let inputActiveFilter = inputArray.filter( elementRadio => elementRadio.checked && elementRadio.value == 'false')
-        filterActiver.innerHTML = ``;
-        inputActiveFilter.forEach( element => {
-            const section = element.closest('section');
-
-            extensionData.forEach( extension  => {
-                if (section.className == deleteEspaceClassName(extension.name)) {
-                    section.innerHTML = `
-                    <div id="container">
-                        <img src="${extension.source}" alt="${extension.name}">
-                        <div>
-                            <h2>${extension.name}</h2>
-                            <p>${extension.contenue}</p>
-                        </div>
-                    </div>`
-                    ActionExtension(section, extension);
-                    filterActiver.append(section);
-                }
-            })     
-        })       
+        //Appel de lafonction filterViewsExtension
+        filterViewsExtension(inputRadioList, filterActiver, 'false')    
     });
-    removeExtension();
+}
+
+// fonction pour filter les extension 
+function filterViewsExtension(inputRadio, filterExtension, inputChecked) {
+    //creation de la section
+    const section = document.createElement('section');
+    // appel de la fonction pour supprimer les espaces dans le nom de la class
+    section.className = deleteEspaceClassName(section.className);
+        
+    let inputArray = Array.from(inputRadio);
+        
+    let inputFilter = inputArray.filter( elementRadio => elementRadio.checked && elementRadio.value == inputChecked)
+    filterExtension.innerHTML = ``;
+    inputFilter.forEach( element => {
+    const section = element.closest('section');
+
+    extensionData.forEach( extension  => {
+        if (section.className == deleteEspaceClassName(extension.name)) {
+            section.innerHTML = `
+                <div id="container">
+                    <img src="${extension.source}" alt="${extension.name}">
+                    <div>
+                        <h2>${extension.name}</h2>
+                        <p>${extension.contenue}</p>
+                    </div>
+                </div>`
+            ActionExtension(section, extension);
+            filterExtension.append(section);
+            }
+        })     
+    })    
 }
 
 // fonction pour gere les action de chacun extension

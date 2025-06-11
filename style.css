@@ -118,7 +118,7 @@ header{
 }
 
 /* section */
-.all, .active {
+.all, .active, .inactive {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -174,7 +174,10 @@ header{
 }
 
 /* footer */
-.attribution { font-size: 1.3vw; text-align: center; }
+.attribution { 
+    font-size: 1.3vw; 
+    text-align: center;
+}
 .attribution a { 
     color: hsl(228, 45%, 44%);
     font-weight: bold;
