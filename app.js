@@ -5,7 +5,9 @@ const body = document.body;
 const buttonTheme = document.querySelector('.theme-toggle');
 const filterAll = document.querySelector('.all');
 const btnActiveFilter = document.querySelector('#filter-buttons-active');
-const filterActiver = document.querySelector('.active')
+const filterActiver = document.querySelector('.active');
+const btnInactiveFilter = document.querySelector('#filter-buttons-inactive')
+const filterInactiver = document.querySelector('.inactive');
 
 
 // fonction pour changer le theme
@@ -85,15 +87,26 @@ function btnAllfilter() {
 }
 
 // fonction pour le filtrer active
-function activeFilter() {
-    
+function optionfilterExtension() {
+    // action pour afficher active
     btnActiveFilter.addEventListener('click', () =>{   
         const inputRadioList = document.querySelectorAll(`input`); 
         filterActiver.style.display = ''; 
         filterAll.style.display = 'none';
+        filterInactiver.style.display = 'none';
         //Appel de lafonction filterViewsExtension
         filterViewsExtension(inputRadioList, filterActiver, 'false')    
     });
+
+    //action pour afficher inactive
+    btnInactiveFilter.addEventListener('click', ()=> {
+        const inputRadioList = document.querySelectorAll('input');
+        filterInactiver.style.display ='';
+        filterAll.style.display = 'none';
+        filterActiver.style.display = 'none';
+        // Appel de la fonction filterViewsExtension
+        filterViewsExtension(inputRadioList, filterInactiver, 'true');
+    })
 }
 
 // fonction pour filter les extension 
@@ -181,8 +194,8 @@ addFilterAll();
 btnAllfilter();
 // Appel de la fonction pour supprimer une extension
 removeExtension();
-// Appel de la focntion pour le active filter
-activeFilter();
+// Appel de la focntion pour filter active et inactive
+optionfilterExtension();
 
 
 
