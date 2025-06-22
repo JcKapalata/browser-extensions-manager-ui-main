@@ -14,7 +14,7 @@ Aperçu de la version bureau de l’interface.
 
 🎨 Choix du thème de couleur
 
-📱 Interface responsive adaptée au desketop et mobile ( pour mobile la taille est 375px);
+📱 Interface responsive adaptée au desketop, tablette et mobile ;
 🖱️ États de survol et focus pour tous les éléments interactifs
 
 🛠️ Technologies utilisées

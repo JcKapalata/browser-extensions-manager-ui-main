@@ -165,9 +165,9 @@ header{
         .divAction div{
             border-radius: 15px;
             height: 15px;
+            position: relative;
             input{
                 cursor: pointer;
-               
             }
         }
     }
@@ -184,7 +184,85 @@ header{
     text-decoration: none;
 }
 
-@media (max-width: 376px) {
+@media (951px <= width <= 1180px) {
+    body{
+        h1, h2{
+            font-size: 3vw;
+        }
+        p{
+            font-size: 2vw;
+        }
+        button{
+            font-size: 2vw;
+        }
+    }
+
+    .all, .active, .inactive {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 10px 0;
+
+        section{
+            width: calc(45% - 10px);
+        }
+    }
+}
+
+@media (740px <= width <= 950px) {
+    body{
+        h1, h2{
+            font-size: 3.5vw;
+        }
+        p{
+            font-size: 2.5vw;
+        }
+        button{
+            font-size: 2.5vw;
+        }
+    }
+
+    .all, .active, .inactive {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 10px 0;
+
+        section{
+            width: calc(45% - 10px);
+        }
+    }
+}
+
+@media (551px <= width <= 739px) {
+    body{
+        h1, h2{
+            font-size: 3.9vw;
+        }
+        p{
+            font-size: 2.9vw;
+        }
+        button{
+            font-size: 2.9vw;
+        }
+    }
+
+    .all, .active, .inactive {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 10px 0;
+
+        section{
+            width: calc(43% - 10px);
+        }
+    }
+}
+
+@media (200px <= width <= 550px) {
 
     body{
         h1, h2{
